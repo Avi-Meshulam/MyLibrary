@@ -1,4 +1,4 @@
-![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/AddItem.gif "Add Item")
+![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/ISBNFiltering.gif "ISBN Filtering")
 
 The application consists of 3 projects:
 + MyLibrary - UI gateway
@@ -53,17 +53,18 @@ The application consists of 3 projects:
 + Users
 
 ### Operations
-+ Add Copies & Borrow an item
+
++ Add Item
+		
+	![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/AddItem.gif "Add Item")
+
++ Add Copies & Borrow
 		
 	![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/AddCopies.gif "Add Copies")
 
 + Filtering
 		
 	![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/Filtering.gif "Filtering")
-
-+ ISBN Filtering
-		
-	![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/ISBNFiltering.gif "ISBN Filtering")
 
 + Advanced Search
 		
