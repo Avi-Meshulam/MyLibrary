@@ -1,0 +1,101 @@
+﻿<local:EntityWindow
+        x:Class="MyLibrary.ItemWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyLibrary"
+        xmlns:BL="clr-namespace:MyLibrary.BL;assembly=MyLibrary.BL"
+        x:TypeArguments="BL:LibraryItem"
+        mc:Ignorable="d"
+        Title="Item Details" WindowStartupLocation="CenterScreen" Icon="Images/Book.png" Width="420" Height="580" ResizeMode="CanMinimize">
+    <Window.Resources>
+        <local:EnumConverter x:Key="EnumConverter"/>
+        <local:EnumComboConverter x:Key="EnumComboConverter"/>
+    </Window.Resources>
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="10,10,10,40" IsHitTestVisible="True" >
+            <Grid x:Name="grdItem" local:ReadOnlyContainer.IsReadOnly="{Binding}">
+                <Grid.Resources>
+                    <local:EnumConverter x:Key="EnumConverter"/>
+                </Grid.Resources>
+                <ContentPresenter/>
+                <Grid x:Name="grdISBN" Height="48" Margin="0,84,0,0" VerticalAlignment="Top">
+                    <Label Content="ISBN:" HorizontalAlignment="Left" Height="26" VerticalAlignment="Bottom" Width="83" VerticalContentAlignment="Center" Margin="10,0,0,0"/>
+                    <TextBox x:Name="txtISBN" Text="{Binding ISBN, Mode=OneWay}" Height="26" Margin="97,0,10,0" TextWrapping="Wrap" VerticalAlignment="Bottom" ToolTip="ISBN" IsReadOnly="True" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" VerticalContentAlignment="Top" HorizontalAlignment="Stretch" TabIndex="9"/>
+                </Grid>
+                <Label Content="Title:" HorizontalAlignment="Left" Height="26" Margin="10,137,0,0" VerticalAlignment="Top" Width="83" Foreground="Red"/>
+                <TextBox x:Name="txtTitle" Text="{Binding Title, Mode=OneWay}" HorizontalAlignment="Stretch" Height="52" Margin="97,137,10,0" TextWrapping="Wrap" VerticalAlignment="Top" ToolTip="Title" TabIndex="10" TextChanged="UIElement_Changed"/>
+                <Label Content="Category:" HorizontalAlignment="Left" Height="26" Margin="10,194,0,0" VerticalAlignment="Top" Width="83" Foreground="Red"/>
+                <ComboBox x:Name="cboCategories" SelectedItem="{Binding Category, Mode=OneWay}" HorizontalAlignment="Stretch" Height="26" Margin="97,194,10,0" VerticalAlignment="Top" ToolTip="Category" VerticalContentAlignment="Center" TabIndex="11" SelectionChanged="cboCategory_SelectionChanged">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Converter={StaticResource EnumConverter}, Mode=OneWay}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Label Content="Sub Category:" HorizontalAlignment="Left" Height="26" Margin="10,225,0,0" VerticalAlignment="Top" Width="83"/>
+                <ComboBox x:Name="cboSubCategories" SelectedItem="{Binding SubCategory, Mode=OneWay}" HorizontalAlignment="Stretch" Height="26" Margin="97,225,10,0" VerticalAlignment="Top" ToolTip="Sub Category" VerticalContentAlignment="Center" TabIndex="12" SelectionChanged="UIElement_Changed" IsEnabled="False">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Converter={StaticResource EnumConverter}, Mode=OneTime}"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Label Content="Publisher:" HorizontalAlignment="Left" Height="26" Margin="10,256,0,0" VerticalAlignment="Top" Width="83"/>
+                <ComboBox x:Name="cboPublishers" SelectedValue="{Binding PublisherID, Mode=OneWay}" SelectedValuePath="PublisherID" DisplayMemberPath="Name" HorizontalAlignment="Stretch" Height="26" Margin="97,256,10,0" VerticalAlignment="Top" ToolTip="Publisher" VerticalContentAlignment="Center" TabIndex="13" SelectionChanged="UIElement_Changed"/>
+                <Label Content="G. Designer:" HorizontalAlignment="Left" Height="26" Margin="10,287,0,0" VerticalAlignment="Top" Width="83"/>
+                <TextBox x:Name="txtGraphicDesigner" Text="{Binding GraphicDesigner, Mode=OneWay}" HorizontalAlignment="Stretch" Height="26" Margin="97,287,10,0" TextWrapping="Wrap" VerticalAlignment="Top" ToolTip="Graphic Designer" VerticalContentAlignment="Center" TabIndex="14" MaxLines="13" TextChanged="UIElement_Changed"/>
+                <Label Content="Print Date:" HorizontalAlignment="Left" Height="26" Margin="10,318,0,0" VerticalAlignment="Top" Width="83"/>
+                <DatePicker x:Name="dtPrintDate" SelectedDate="{Binding PrintDate, Mode=OneWay}" HorizontalAlignment="Stretch" Height="26" Margin="97,318,10,0" VerticalAlignment="Top" VerticalContentAlignment="Center" TabIndex="15" SelectedDateChanged="UIElement_Changed"/>
+                <Grid x:Name="grdJournal" Height="100" Margin="0,349,0,0" VerticalAlignment="Top">
+                    <Label Content="Editor:" HorizontalAlignment="Left" Height="26" Margin="10,0,0,0" VerticalAlignment="Top" Width="83"/>
+                    <TextBox x:Name="txtEditor" Text="{Binding Editor, Mode=OneWay}" HorizontalAlignment="Stretch" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" ToolTip="Editor" Margin="97,0,10,0" VerticalContentAlignment="Center" TabIndex="16" TextChanged="UIElement_Changed"/>
+                </Grid>
+                <Grid x:Name="grdBook" Height="100" Margin="0,349,0,0" VerticalAlignment="Top">
+                    <Label Content="Edition:" HorizontalAlignment="Left" Height="25" Margin="10,0,0,0" VerticalAlignment="Top" Width="83"/>
+                    <TextBox x:Name="txtEdition" Text="{Binding Edition, Mode=OneWay}" HorizontalAlignment="Stretch" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" ToolTip="Edition" Margin="97,1,10,0" VerticalContentAlignment="Center" TabIndex="17" TextChanged="UIElement_Changed"/>
+                    <Label Content="Translator:" HorizontalAlignment="Left" Height="26" Margin="10,31,0,0" VerticalAlignment="Top" Width="83"/>
+                    <TextBox x:Name="txtTranslator" Text="{Binding Translator, Mode=OneWay}" HorizontalAlignment="Stretch" Height="26" Margin="97,31,10,0" TextWrapping="Wrap" VerticalAlignment="Top" ToolTip="Translator" VerticalContentAlignment="Center" TabIndex="18" TextChanged="UIElement_Changed"/>
+                    <Label Content="Author:" HorizontalAlignment="Left" Height="26" Margin="10,64,0,0" VerticalAlignment="Top" Width="83"/>
+                    <local:EditableComboBox x:Name="cboAuthors" SelectedItem="{Binding Author, Mode=OneWay}" IsEditable="True" IsTextSearchEnabled="False" HorizontalAlignment="Stretch" Height="26" Margin="97,64,10,0" VerticalAlignment="Top" ToolTip="Author" TabIndex="19" VerticalContentAlignment="Center" PreviewKeyUp="cboAuthors_PreviewKeyUp"/>
+                </Grid>
+                <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Center" Height="25" Margin="0,0,0,10" VerticalAlignment="Bottom" Width="78" Click="btnSave_Click" VerticalContentAlignment="Center" TabIndex="20" IsDefault="True"/>
+                <Label Content="Type:" HorizontalAlignment="Left" Margin="10,15,0,0" VerticalAlignment="Top" Width="83"/>
+                <Border x:Name="brdType" BorderBrush="#FFABADB3" BorderThickness="1" HorizontalAlignment="Stretch" Margin="97,10,10,0" VerticalAlignment="Top" Height="37">
+                    <Grid>
+                        <RadioButton x:Name="optTypeBook" Content="Book" HorizontalAlignment="Left" Height="20" Margin="32,10,0,0" VerticalAlignment="Top" Checked="optTypeBook_Checked" TabIndex="1"/>
+                        <RadioButton x:Name="optTypeJournal" Content="Journal" HorizontalAlignment="Left" Height="20" Margin="112,10,0,0" VerticalAlignment="Top" Checked="optTypeJournal_Checked" TabIndex="2"/>
+                    </Grid>
+                </Border>
+                <Grid x:Name="grdISBNNew" Height="80" Margin="0,52,0,0" VerticalAlignment="Top">
+                    <Label x:Name="lblISBNEdit" Content="ISBN:" HorizontalAlignment="Left" Height="26" Margin="10,1,0,0" VerticalAlignment="Top" Width="84" Foreground="Red"/>
+                    <Button x:Name="btnClearISBN" Content="Clear" HorizontalAlignment="Right" Height="24" Margin="0,3,75,0" VerticalAlignment="Top" Width="60" Click="btnClearISBN_Click" TabIndex="3"/>
+                    <Button x:Name="btnGenerateISBN" Content="Generate" HorizontalAlignment="Right" Height="24" Margin="0,3,10,0" VerticalAlignment="Top" Width="60" Click="btnGenerateISBN_Click" TabIndex="4"/>
+                    <Border BorderThickness="1" Height="48" Margin="10,0" VerticalAlignment="Bottom" BorderBrush="#FFABADB3">
+                        <Grid>
+                            <ComboBox x:Name="cboISBNPrefix" HorizontalAlignment="Left" Height="26" Margin="10,10,0,0" VerticalAlignment="Top" Width="48" ToolTip="Prefix" TabIndex="5" SelectionChanged="cboISBNPrefix_SelectionChanged">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            <ComboBox x:Name="cboISBNGroup" HorizontalAlignment="Left" Height="26" Margin="63,10,0,0" VerticalAlignment="Top" Width="159" ToolTip="Group Identifier" TabIndex="6" SelectionChanged="UIElement_Changed">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Converter={StaticResource EnumComboConverter}}"/>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            <TextBox x:Name="txtISBNPublisher" HorizontalAlignment="Left" Height="26" Margin="227,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" ToolTip="Publisher Code" TabIndex="7" TextChanged="UIElement_Changed"/>
+                            <TextBox x:Name="txtISBNCatalogue" HorizontalAlignment="Left" Height="26" Margin="284,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" ToolTip="Catalogue Number" TabIndex="8" TextChanged="UIElement_Changed"/>
+                            <TextBox x:Name="txtISBNCheckDigit" HorizontalAlignment="Left" Height="26" Margin="334,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="17" ToolTip="Check Digit" IsEnabled="False" HorizontalContentAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Grid>
+        </Border>
+        <Button x:Name="btnCopies" Content="Copies..." HorizontalAlignment="Left" Height="25" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="77" Click="btnCopies_Click" TabIndex="21"/>
+    </Grid>
+</local:EntityWindow>

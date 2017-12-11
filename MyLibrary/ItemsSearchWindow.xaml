@@ -1,0 +1,127 @@
+﻿<Window x:Class="MyLibrary.ItemsSearchWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyLibrary"
+        mc:Ignorable="d"
+        Title="Items Search" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight" Icon="Images/Search.png" ResizeMode="CanMinimize">
+    <Window.Resources>
+        <local:EnumComboConverter x:Key="EnumComboConverter"/>
+        <local:EnumConverter x:Key="EnumConverter"/>
+        <local:EnumKeyValueUniqueConverter x:Key="EnumKeyValueUniqueConverter"/>
+        <local:EmptyStringConverter x:Key="EmptyStringConverter"/>
+        <Style x:Key="enumKeyValueUnique">
+            <Setter Property="CheckBox.Content">
+                <Setter.Value>
+                    <MultiBinding Converter="{StaticResource EnumKeyValueUniqueConverter}">
+                        <Binding Path="DataContext" RelativeSource="{RelativeSource Self}"/>
+                        <Binding Path="ItemsSource" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=ListBox}"/>
+                    </MultiBinding>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Border BorderBrush="Black" BorderThickness="1" Margin="10">
+            <Grid x:Name="grdItem" Margin="10">
+                <!--<ContentPresenter/>-->
+                <Label Content="Title:" HorizontalAlignment="Left" Height="26" Margin="0,137,0,0" VerticalAlignment="Top" Width="40"/>
+                <TextBox x:Name="txtTitle" Text="{Binding Title, Mode=OneWay}" HorizontalAlignment="Left" Height="26" Margin="45,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="367" ToolTip="Title" TabIndex="9"/>
+                <Label Content="G. Designer:" HorizontalAlignment="Left" Height="26" Margin="0,346,0,0" VerticalAlignment="Top" Width="75"/>
+                <TextBox x:Name="txtGraphicDesigner" Text="{Binding GraphicDesigner, Mode=OneWay}" HorizontalAlignment="Left" Height="26" Margin="80,346,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="332" ToolTip="Graphic Designer" TabIndex="21"/>
+                <Grid x:Name="grdJournal" Height="114" Margin="420,384,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="224">
+                    <Label Content="Editor:" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="67"/>
+                    <TextBox x:Name="txtEditor" Text="{Binding Editor, Mode=OneWay}" HorizontalAlignment="Left" Height="26" Margin="0,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" ToolTip="Editor" TabIndex="24"/>
+                </Grid>
+                <Grid x:Name="grdBook" Height="114" Margin="420,384,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="224">
+                    <Label Content="Edition:" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="67"/>
+                    <TextBox x:Name="txtEdition" Text="{Binding Edition, Mode=OneWay}" HorizontalAlignment="Left" Height="26" Margin="0,31,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224" ToolTip="Edition" TabIndex="22"/>
+                    <Label Content="Translator:" HorizontalAlignment="Left" Height="26" Margin="0,57,0,0" VerticalAlignment="Top" Width="67"/>
+                    <TextBox x:Name="txtTranslator" Text="{Binding Translator, Mode=OneWay}" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Bottom" Width="224" ToolTip="Translator" TabIndex="23"/>
+                </Grid>
+                <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Center" Margin="0,520,0,10" Width="78" Click="btnSearch_Click" Height="26" VerticalAlignment="Top" TabIndex="25" IsDefault="True"/>
+                <Label Content="ISBN:" HorizontalAlignment="Left" Height="26" Margin="0,91,0,0" VerticalAlignment="Top" Width="40"/>
+                <Border BorderThickness="1" HorizontalAlignment="Left" Height="48" Margin="45,79,0,0" VerticalAlignment="Top" Width="367" BorderBrush="#FFABADB3">
+                    <Grid>
+                        <ComboBox x:Name="cboISBNPrefixFilter" HorizontalAlignment="Left" Height="26" Margin="9,10,0,0" VerticalAlignment="Top" Width="48" ToolTip="Prefix" SelectionChanged="cboISBNPrefixFilter_SelectionChanged" TabIndex="4">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <ComboBox x:Name="cboISBNGroupFilter" HorizontalAlignment="Left" Height="26" Margin="62,10,0,0" VerticalAlignment="Top" Width="124" ToolTip="Group Identifier" TabIndex="5">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Converter={StaticResource EnumComboConverter}}"/>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <TextBox x:Name="txtISBNPublisherFilter" HorizontalAlignment="Left" Height="26" Margin="191,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="52" ToolTip="Publisher Code" TabIndex="6"/>
+                        <TextBox x:Name="txtISBNCatalogueFilter" HorizontalAlignment="Left" Height="26" Margin="248,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" ToolTip="Catalogue Number" TabIndex="7"/>
+                        <Button x:Name="btnISBNFilterClear" Content="Clear" HorizontalAlignment="Left" Height="26" Margin="298,10,0,0" VerticalAlignment="Top" Width="58" TabIndex="8" Click="btnISBNFilterClear_Click"/>
+                    </Grid>
+                </Border>
+                <Label Content="Categories:" Height="26" Margin="420,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                <Button x:Name="btnCategoriesFilterClear" Content="Clear" HorizontalAlignment="Left" Margin="586,0,0,0" Height="26" VerticalAlignment="Top" Width="58" TabIndex="18" Click="btnCategoriesFilterClear_Click"/>
+                <ListBox x:Name="lstCategoriesFilter" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="132" Margin="420,31,0,0" VerticalAlignment="Top" Width="224" TabIndex="17" SelectionMode="Multiple" SelectionChanged="lstCategoriesFilter_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <CheckBox Content="{Binding Converter={StaticResource EnumConverter}}" IsChecked="{Binding IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}, Mode=FindAncestor}}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Label Content="Sub Categories:" HorizontalAlignment="Left" Height="26" Margin="420,168,126,0" VerticalAlignment="Top" Width="98"/>
+                <Button x:Name="btnSubCategoriesFilterClear" Content="Clear" HorizontalAlignment="Left" Height="26" Margin="586,168,0,0" VerticalAlignment="Top" Width="58" TabIndex="20" Click="btnSubCategoriesFilterClear_Click"/>
+                <ListBox x:Name="lstSubCategoriesFilter" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="173" Margin="420,199,0,0" VerticalAlignment="Top" Width="224" SelectionMode="Multiple" TabIndex="19">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <CheckBox Style="{StaticResource enumKeyValueUnique}" IsChecked="{Binding IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}, Mode=FindAncestor}}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Grid x:Name="grdPublishers" HorizontalAlignment="Left" Height="169" Margin="0,168,0,0" VerticalAlignment="Top" Width="203">
+                    <ListBox x:Name="lstPublishersFilter" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="138" Margin="1,31,0,0" VerticalAlignment="Top" Width="202" SelectionMode="Multiple" TabIndex="12">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding Name}" IsChecked="{Binding IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}, Mode=FindAncestor}}" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Button x:Name="btnPublishersFilterClear" Content="Clear" HorizontalAlignment="Left" Height="26" Margin="144,0,0,0" VerticalAlignment="Top" Width="58" TabIndex="13" Click="btnPublishersFilterClear_Click"/>
+                    <Label Content="Publishers:" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="72"/>
+                </Grid>
+                <Grid x:Name="grdAuthors" HorizontalAlignment="Left" Height="169" Margin="209,168,0,0" VerticalAlignment="Top" Width="203">
+                    <Label Content="Authors:" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="70"/>
+                    <Button x:Name="btnAuthorsFilterClear" Content="Clear" HorizontalAlignment="Left" Margin="145,0,0,0" Width="58" Height="26" VerticalAlignment="Top" TabIndex="11" Click="btnAuthorsFilterClear_Click"/>
+                    <ListBox x:Name="lstAuthorsFilter" ItemsSource="{Binding}" HorizontalAlignment="Left" Height="138" Margin="0,31,0,0" VerticalAlignment="Top" Width="203" SelectionMode="Multiple" TabIndex="10">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <CheckBox Content="{Binding Converter={StaticResource EmptyStringConverter}}" IsChecked="{Binding IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}, Mode=FindAncestor}}" />
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+                <Label Content="Print Date:" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Width="75" Margin="0,384,0,0"/>
+                <Button x:Name="btnPrintDateFilterClear" Content="Clear" HorizontalAlignment="Left" Height="26" Margin="354,384,0,0" VerticalAlignment="Top" Width="58" TabIndex="16" Click="btnPrintDateFilterClear_Click"/>
+                <Border BorderThickness="1" HorizontalAlignment="Left" Height="83" Margin="0,415,0,0" VerticalAlignment="Top" Width="412" BorderBrush="#FFABADB3">
+                    <Grid>
+                        <Label Content="From:" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Margin="10,9,0,0" Width="45" />
+                        <DatePicker x:Name="dtPrintDateToFilter" HorizontalAlignment="Left" Height="26" VerticalAlignment="Bottom" Margin="80,0,0,6" Width="320" TabIndex="15"/>
+                        <Label Content="To:" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Margin="10,40,0,0" Width="45" />
+                        <DatePicker x:Name="dtPrintDateFromFilter" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top" Margin="80,10,0,0" Width="320" TabIndex="14"/>
+                    </Grid>
+                </Border>
+                <Border BorderBrush="#FFABADB3" BorderThickness="1" HorizontalAlignment="Left" Margin="0,31,0,0" VerticalAlignment="Top" Width="412" Height="37">
+                    <Grid>
+                        <RadioButton x:Name="optTypeBook" Content="Book" HorizontalAlignment="Left" Height="20" Margin="77,10,0,0" VerticalAlignment="Top" Checked="optTypeBook_Checked" TabIndex="2"/>
+                        <RadioButton x:Name="optTypeJournal" Content="Journal" HorizontalAlignment="Left" Height="20" Margin="154,10,0,0" VerticalAlignment="Top" Checked="optTypeJournal_Checked" TabIndex="3"/>
+                        <RadioButton x:Name="optTypeAll" Content="ALL" HorizontalAlignment="Left" Height="20" Margin="10,10,0,0" VerticalAlignment="Top" IsChecked="True" Checked="optTypeAll_Checked" TabIndex="1"/>
+                    </Grid>
+                </Border>
+                <Label Content="Type:" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Height="26"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
