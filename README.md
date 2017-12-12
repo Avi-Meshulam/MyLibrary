@@ -8,22 +8,21 @@ The application consists of 3 projects:
 ### Features/Technologies/Tools:
 + WPF
 + Object Oriented Programming
-+ 3 Layers Design
++ 3 Layers Architecture
 + Interfaces & Generics
-+ Observable Collections & Events
-+ UI components reuse
-+ Data Grids
-+ Filtering
++ Custom Observable Collections
++ Custom 'Window' objects
++ Data Grids & Filtering
 + Toolbars
-+ User Permissions
-+ Isolated Storage
++ User & Permissions
 + Binary Serialization
++ Isolated Storage
 
 ### Login Instructions
-+ On first launch user name & password will be auto filled with admin/admin.
-+ On the top-right corner you will see a "Generate Demo Data" button - click it to load demo data.
-+ "Generate Demo Data" button will be displayed only as long as there's no data in storage.
-+ "Generate Demo Data" button creates 20 users: user[01-20]/pass[01-20] respectively.
++ On first launch, user name & password will be auto filled with admin/admin.
++ On the top-right corner you will see a "Generate Demo Data" button - click it to load demo data. The button apears only as long as there's no data in storage. Demo data includes, among the rest, 20 usersusers, with the following credentials:
++ User name: "user{01-20}"
++ Password: "pass{01-20}"
 
 ### Business Logic Highlights
 #### Models - Overview
@@ -44,7 +43,7 @@ The application consists of 3 projects:
 
 ### Isolated Storage
 #### Root directory format
-%LOCALAPPDATA%\IsolatedStorage\{xxxxxxxx}.ldz\{xxxxxxxx}.mrf\Url.{xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx}\AssemFiles
+%LOCALAPPDATA%\IsolatedStorage\{xxxxxxxx}.ldz\{xxxxxxxx}.mrf\Url.{GUID}\AssemFiles
 		
 #### Folders (i.e 'tables')
 + Employees
