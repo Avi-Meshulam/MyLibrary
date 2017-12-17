@@ -24,17 +24,17 @@ The application consists of 3 projects:
 + User name: "user{01-20}"
 + Password: "pass{01-20}"
 
-### Business Logic Highlights
-#### Models - Overview
+### Business Logic Models
+#### Entities - Overview
 ![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/images/ModelsOverview.png "Models Overview")
 
-#### Models - Details
+#### Entities - Details
 ![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/images/ModelsDetails.png "Models Details")
 
 #### Entity Manager
 ![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/images/EntityManager.png "Entity Manager")
 
-### UI Highlights
+### UI Models
 #### Entities Window
 ![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/images/EntitiesWindow.png "Entities Window")
 
