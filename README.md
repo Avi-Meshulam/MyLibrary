@@ -59,7 +59,7 @@ The application consists of 3 projects:
 
 + Add Copies & Borrow
 		
-	![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/AddCopies.gif "Add Copies")
+	![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/AddCopiesAndBorrow.gif "Add Copies And Borrow")
 
 + ISBN Filtering
 		
