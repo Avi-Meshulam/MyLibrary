@@ -1,3 +1,4 @@
+# MyLibrary
 ![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/Filtering.gif "Filtering")
 
 The application consists of 3 projects:
