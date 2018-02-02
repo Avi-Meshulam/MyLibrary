@@ -1,5 +1,5 @@
 # MyLibrary
-![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/Filtering.gif "Filtering")
+![Filtering](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/Filtering.gif "Filtering")
 
 The application consists of 3 projects:
 + MyLibrary - UI gateway
@@ -27,20 +27,20 @@ The application consists of 3 projects:
 
 ### Business Logic Models
 #### Entities - Overview
-![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/images/ModelsOverview.png "Models Overview")
+![Models Overview](https://github.com/PrisonerM13/MyLibrary/blob/master/images/ModelsOverview.png "Models Overview")
 
 #### Entities - Details
-![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/images/ModelsDetails.png "Models Details")
+![Models Details](https://github.com/PrisonerM13/MyLibrary/blob/master/images/ModelsDetails.png "Models Details")
 
 #### Entity Manager
-![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/images/EntityManager.png "Entity Manager")
+![Entity Manager](https://github.com/PrisonerM13/MyLibrary/blob/master/images/EntityManager.png "Entity Manager")
 
 ### UI Models
 #### Entities Window
-![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/images/EntitiesWindow.png "Entities Window")
+![Entities Windows](https://github.com/PrisonerM13/MyLibrary/blob/master/images/EntitiesWindow.png "Entities Window")
 
 #### Entity Window
-![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/images/EntityWindow.png "Entity Window")
+![Entity Window](https://github.com/PrisonerM13/MyLibrary/blob/master/images/EntityWindow.png "Entity Window")
 
 ### Isolated Storage
 #### Root directory format
@@ -56,37 +56,37 @@ The application consists of 3 projects:
 
 + Add Item
 		
-	![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/AddItem.gif "Add Item")
+	![Add Item](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/AddItem.gif "Add Item")
 
 + Add Copies & Borrow
 		
-	![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/AddCopiesAndBorrow.gif "Add Copies And Borrow")
+	![Add Copies And Borrow](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/AddCopiesAndBorrow.gif "Add Copies And Borrow")
 
 + ISBN Filtering
 		
-	![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/ISBNFiltering.gif "ISBN Filtering")
+	![ISBN Filtering](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/ISBNFiltering.gif "ISBN Filtering")
 
 + Advanced Search
 		
-	![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/AdvancedSearch.gif "Advanced Search")
+	![Advanced Search](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/AdvancedSearch.gif "Advanced Search")
 
 + Add Employee
 		
-	![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/AddEmployee.gif "Add Employee")
+	![Add Employee](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/AddEmployee.gif "Add Employee")
 
 + Add User
 		
-	![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/AddUser.gif "Add User")
+	![Add User](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/AddUser.gif "Add User")
 
 + Permissions
 	+ Manager
 		
-		![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/ManagerPermissions.gif "Manager Permissions")
+		![Manager Permissions](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/ManagerPermissions.gif "Manager Permissions")
 
 	+ Supervisor
 		
-		![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/SupervisorPermissions.gif "Supervisor Permissions")
+		![Supervisor Permissions](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/SupervisorPermissions.gif "Supervisor Permissions")
 
 	+ Worker
 		
-		![alt text](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/WorkerPermissions.gif "Worker Permissions")
+		![Worker Permissions](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/WorkerPermissions.gif "Worker Permissions")
