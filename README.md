@@ -1,5 +1,5 @@
 # MyLibrary
-### A WPF application, simulating a book library and incorporating OOP principles and binary serialization.
+### A WPF application, simulating a book library, incorporating OOP principles and binary serialization.
 ![Filtering](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/Filtering.gif "Filtering")
 
 The application consists of 3 projects:
