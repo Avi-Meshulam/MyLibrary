@@ -22,7 +22,7 @@ The application consists of 3 projects:
 
 ### Login Instructions
 + On first launch, user name & password will be auto filled with admin/admin.
-+ On the top-right corner you will see a "Generate Demo Data" button - click it to load demo data. The button apears only as long as there's no data in storage. Demo data includes, among the rest, 20 usersusers, with the following credentials:
++ On the top-right corner you will see a "Generate Demo Data" button - click it to load demo data. The button apears only as long as there's no data in storage. Demo data includes 20 users, with the following credentials:
 + User name: "user{01-20}"
 + Password: "pass{01-20}"
 
