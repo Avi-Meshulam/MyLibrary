@@ -79,7 +79,7 @@ The application consists of 3 projects:
 		
 	![Add User](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/AddUser.gif "Add User")
 
-+ Permission
++ Permissions
 	+ Manager
 		
 		![Manager Permissions](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/ManagerPermissions.gif "Manager Permissions")
