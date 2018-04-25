@@ -83,10 +83,9 @@ The application consists of 3 projects:
 	+ Manager
 		
 		![Manager Permissions](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/ManagerPermissions.gif "Manager Permissions")
-	+ Supervisor - Cannot add/edit employees and users.
+	+ Supervisor - Same as Manager, but cannot manipulate employees and users.
 		
 		![Supervisor Permissions](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/SupervisorPermissions.gif "Supervisor Permissions")
-
-	+ Worker - Cannot add/edit employees, users, publishers and books.
+	+ Worker - Same as Supervisor, but cannot manipulate publishers and books.
 		
 		![Worker Permissions](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/WorkerPermissions.gif "Worker Permissions")
