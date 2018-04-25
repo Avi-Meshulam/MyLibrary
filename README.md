@@ -79,15 +79,14 @@ The application consists of 3 projects:
 		
 	![Add User](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/AddUser.gif "Add User")
 
-+ Permissions
++ Permission
 	+ Manager
 		
 		![Manager Permissions](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/ManagerPermissions.gif "Manager Permissions")
-
-	+ Supervisor
+	+ Supervisor - Cannot add/edit employees and users.
 		
 		![Supervisor Permissions](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/SupervisorPermissions.gif "Supervisor Permissions")
 
-	+ Worker
+	+ Worker - Cannot add/edit employees, users, publishers and books.
 		
 		![Worker Permissions](https://github.com/PrisonerM13/MyLibrary/blob/master/gif/WorkerPermissions.gif "Worker Permissions")
